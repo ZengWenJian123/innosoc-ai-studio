@@ -507,3 +507,200 @@ h1 {
     width: 100%;
   }
 }
+
+/* 图片网格布局 */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.image-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #dce9ff;
+  background: #f8fbff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(31, 111, 255, 0.15);
+}
+
+/* Hero 区域大图网格 */
+.hero-image-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.hero-image-grid img {
+  aspect-ratio: 1/1;
+  border-radius: 14px;
+  border-width: 2px;
+}
+
+/* 卡片内双图网格 */
+.card-image-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.card-image-grid img {
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 视频网格布局 */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.video-grid video {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid #dce9ff;
+  background: #f8fbff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========== 对比图组件（鼠标划过显示原图/目标图）========== */
+.compare-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.compare-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 原图（底层） */
+.compare-original {
+  z-index: 1;
+}
+
+/* 目标图（上层，被裁剪显示） */
+.compare-target {
+  z-index: 2;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.1s ease-out;
+}
+
+/* 鼠标划过时动态更新目标图的裁剪区域 */
+.compare-container:hover .compare-target {
+  transition: none;
+}
+
+/* 分割线指示器 */
+.compare-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #fff;
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 分割线上的圆形手柄 */
+.compare-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 左右箭头图标 */
+.compare-divider::before {
+  content: '↔';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* 标签 */
+.compare-label {
+  position: absolute;
+  bottom: 8px;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 4;
+}
+
+.compare-label-original {
+  left: 8px;
+}
+
+.compare-label-target {
+  right: 8px;
+}
+
+/* 提示文字 */
+.compare-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(31, 111, 255, 0.9);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.compare-container:hover .compare-hint {
+  opacity: 0;
+}
+
+.compare-container:not(:hover) .compare-hint {
+  opacity: 1;
+}

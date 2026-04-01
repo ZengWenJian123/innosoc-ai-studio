@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InnoSoc AI Studio - 首页</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body data-page="home">
   <div class="page-wrap">
     <header class="navbar">
@@ -24,7 +26,7 @@
           <a class="nav-link" data-page-link="pricing" href="定价.html">定价</a>
           <a class="nav-link" data-page-link="tools" href="工具介绍.html">工具介绍</a>
           <a class="nav-link" data-page-link="help" href="帮助.html">帮助</a>
-          <a class="btn btn-primary nav-btn" href="http://localhost:8502">立即体验</a>
+          <a class="btn btn-primary nav-btn" href="http://192.168.10.86:8502">立即体验</a>
         </nav>
       </div>
     </header>
@@ -36,15 +38,21 @@
             <span class="kicker">AI Studio统一工作流</span>
             <h1>一个入口，覆盖 AI生图、图片编辑、图像生成、数字人视频生成与本地翻译能力</h1>
             <p class="lead">
-              InnoSoc AI Studio 是一款 AI 客户端应用和智能助手，支持众多先进的 AI 模型和 API，可在 Windows、MacOS、Android、iOS、Linux 和网页版上使用。连接物理世界与 AI 工作台能力。
+              InnoSoc AI Studio 是一款 AI 客户端应用和智能助手，支持众多先进的 AI 模型和 API，可在 Windows、MacOS、Android、iOS、Linux 和网页版上使用。连接物理世界与
+              AI 工作台能力。
               用户可以从首页快速了解能力边界，随后直达对应工具模块开始创作。
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="http://localhost:8502">立即体验</a>
+              <a class="btn btn-primary" href="http://192.168.10.86:8502">立即体验</a>
               <a class="btn btn-ghost" href="工具介绍.html">查看工具介绍</a>
             </div>
           </div>
-          <img class="hero-img" src="assets/hero-studio.svg" alt="AI 工作台首页视觉图">
+          <div class="image-grid hero-image-grid">
+            <img src="image/CREATIVE 创意流体.png" alt="创意海报设计">
+            <img src="image/AR 眼镜全息设计.png" alt="AR 眼镜设计">
+            <img src="image/3D CAD 全息投影.png" alt="3D CAD 设计">
+            <img src="image/蓝橙配色机器人.png" alt="科幻场景设计">
+          </div>
         </div>
       </section>
 
@@ -53,25 +61,31 @@
           <h2 class="section-title">四大核心工具</h2>
           <p class="section-subtitle">点击卡片即可直达工作台对应模块</p>
           <div class="card-grid">
-            <article id="smart-video" class="card">
-              <img class="card-visual" src="assets/module-ai-image.svg" alt="智能视频生成器配图">
+            <article id="image-generate" class="card">
+              <div class="image-grid card-image-grid">
+                <img src="image/全息云存储.png" alt="科幻场景设计">
+                <img src="image/AI FUTURE 智能手机.png" alt="文字海报设计">
+              </div>
               <div class="card-head">
-                <h3 class="card-title">智能视频生成器</h3>
+                <h3 class="card-title">图像生成器</h3>
                 <span class="badge">tool=1</span>
               </div>
-              <p class="muted">从提示词或素材出发，快速生成可用于演示与传播的短视频内容。</p>
+              <p class="muted">通过提示词、草图和参考图组合，快速输出可用于提案的概念视觉图。</p>
               <div class="tag-row">
-                <span class="tag">镜头控制</span>
-                <span class="tag">时长调节</span>
-                <span class="tag">快速成片</span>
+                <span class="tag">概念设计</span>
+                <span class="tag">参考图驱动</span>
+                <span class="tag">批量版本</span>
               </div>
               <button class="btn btn-primary" onclick="openWorkspace(1)">进入模块</button>
             </article>
 
-            <article id="multi-image-edit" class="card">
-              <img class="card-visual" src="assets/module-image-edit.svg" alt="多模式图像编辑器配图">
+            <article id="image-edit" class="card">
+              <div class="image-grid card-image-grid">
+                <img src="image/图片编辑/灰模耳机.png" alt="原图 - 灰模耳机">
+                <img src="image/图片编辑/耳机上色.png" alt="编辑后 - 耳机上色">
+              </div>
               <div class="card-head">
-                <h3 class="card-title">多模式图像编辑器</h3>
+                <h3 class="card-title">图像编辑器</h3>
                 <span class="badge">tool=2</span>
               </div>
               <p class="muted">支持单图、双图、多图编辑，按自然语言完成替换、融合与精修。</p>
@@ -83,23 +97,29 @@
               <button class="btn btn-primary" onclick="openWorkspace(2)">进入模块</button>
             </article>
 
-            <article id="concept-image" class="card">
-              <img class="card-visual" src="assets/module-image-generate.svg" alt="概念图生成器配图">
+            <article id="video-frame-to-frame" class="card">
+              <div class="video-grid card-image-grid">
+                <video src="video/蝴蝶花朵.mp4" controls loop playsinline></video>
+                <video src="video/滑动屏幕.mp4" controls loop playsinline></video>
+              </div>
               <div class="card-head">
-                <h3 class="card-title">概念图生成器</h3>
+                <h3 class="card-title">首尾帧视频生成器</h3>
                 <span class="badge">tool=3</span>
               </div>
-              <p class="muted">通过草图、参考图和提示词组合，快速输出可用于提案的概念视觉图。</p>
+              <p class="muted">从提示词或素材出发，快速生成可用于演示与传播的短视频内容。</p>
               <div class="tag-row">
-                <span class="tag">概念设计</span>
-                <span class="tag">参考图驱动</span>
-                <span class="tag">批量版本</span>
+                <span class="tag">镜头控制</span>
+                <span class="tag">时长调节</span>
+                <span class="tag">快速成片</span>
               </div>
               <button class="btn btn-primary" onclick="openWorkspace(3)">进入模块</button>
             </article>
 
             <article id="digital-human-video" class="card">
-              <img class="card-visual" src="assets/module-digital-human.svg" alt="数字人视频生成器配图">
+              <div class="video-grid card-image-grid">
+                <video src="video/带货主播.mp4" controls loop playsinline></video>
+                <video src="video/电竞.mp4" controls loop playsinline></video>
+              </div>
               <div class="card-head">
                 <h3 class="card-title">数字人视频生成器</h3>
                 <span class="badge">tool=4</span>
@@ -137,7 +157,8 @@
               <span class="tag">图片翻译</span>
               <span class="tag">LM Studio 接入</span>
             </div>
-            <a class="btn btn-primary" href="https://fy.innosoc.com/" target="_blank" rel="noopener noreferrer">打开翻译工具</a>
+            <a class="btn btn-primary" href="https://fy.innosoc.com/" target="_blank"
+              rel="noopener noreferrer">打开翻译工具</a>
           </article>
         </div>
       </section>
@@ -149,4 +170,5 @@
   </div>
   <script src="site.js"></script>
 </body>
+
 </html>
