@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>帮助 - InnoSoc AI Studio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="help">
+  <div class="page-wrap">
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html">
+          <img class="brand-mark-img" src="assets/logo-innosoc.svg" alt="InnoSoc logo">
+          <span>
+            <strong class="brand-title">InnoSoc AI Studio</strong>
+            <span class="brand-subtitle">AI 工作台演示与生产级创作入口</span>
+          </span>
+        </a>
+        <button class="mobile-toggle" data-menu-toggle aria-label="菜单">☰</button>
+        <nav class="nav-menu" data-nav-menu>
+          <a class="nav-link" data-page-link="home" href="index.html">首页</a>
+          <a class="nav-link" data-page-link="download" href="download.html">下载</a>
+          <a class="nav-link" data-page-link="pricing" href="pricing.html">定价</a>
+          <a class="nav-link" data-page-link="tools" href="tools.html">工具介绍</a>
+          <a class="nav-link" data-page-link="help" href="help.html">帮助</a>
+          <a class="btn btn-primary nav-btn" href="http://192.168.10.86:8502">立即体验</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <span class="kicker">帮助中心</span>
+        <h1>从试用到交付的支持体系</h1>
+        <p class="lead">我们提供上手文档、常见问题与技术支持，确保团队能快速稳定地使用整站能力。</p>
+        <img class="hero-img" src="assets/help-center.svg" alt="帮助中心视觉图">
+
+        <section class="feature-block">
+          <h3>支持渠道</h3>
+          <ul class="list">
+            <li>在线工单：用于问题追踪、需求反馈、版本建议。</li>
+            <li>技术邮箱：support@innosoc.ai（工作日 9:30-18:30 响应）。</li>
+            <li>企业支持：企业版客户可获得专属技术对接通道。</li>
+          </ul>
+        </section>
+
+        <section class="faq">
+          <details open>
+            <summary>Q1：四大工具如何通过链接快速访问？</summary>
+            <p class="muted">
+              使用 `https://studio.innosoc.com/?tool=1~4`：
+              1 = 图像生成器，2 = 图像编辑器，3 = 首尾帧视频生成器，4 = 数字人视频生成器。
+            </p>
+          </details>
+          <details>
+            <summary>Q2：本地大语言模型翻译工具在哪里？</summary>
+            <p class="muted">可通过官网"其他工具"入口访问：`https://fy.innosoc.com/`，页面标题为 Local Translate。</p>
+          </details>
+          <details>
+            <summary>Q3：是否支持私有化部署？</summary>
+            <p class="muted">支持。企业版可提供私有网络部署、权限控制与审计能力。</p>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">© 2025 中科华芯（东莞）科技有限公司。版权所有</div>
+    </footer>
+  </div>
+  <script src="site.js"></script>
+</body>
+
+</html>
